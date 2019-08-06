@@ -2,10 +2,8 @@
 
 #include <string>
 
-#include <reverser.h>
-
 using namespace System;
-using namespace Mionex;
+using namespace HornsHoofs;
 
 void MarshalString(String^ input, std::string& output)
 {
@@ -15,11 +13,20 @@ void MarshalString(String^ input, std::string& output)
   Marshal::FreeHGlobal(IntPtr((void*)chars));
 }
 
+ReverseService::ReverseService()
+{
+  _reverser = new hh::reverser();
+}
+
+ReverseService::~ReverseService()
+{
+  delete _reverser;
+}
+
 System::String^ ReverseService::Reverse(String^ arg)
 {
-  mx::reverser reverser;
   std::string input;
   MarshalString(arg, input);
-  auto reverseInput = reverser.reverse(input);
-  return gcnew String(reverseInput.c_str());
+  auto reversedInput = _reverser->reverse(input);
+  return gcnew String(reversedInput.c_str());
 }

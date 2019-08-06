@@ -1,9 +1,8 @@
 ﻿cmake_minimum_required(VERSION 3.13)
 
-set(target_name cmake-mixed-mode)
+set(target_name "HornsHoofs.ReverseService")
 
-add_executable (${target_name}
-	"cmake-mixed-mode.cpp"
+add_library(${target_name} SHARED
 	"IReverseService.h"
 	"ReverseService.cpp"
 	"ReverseService.h")

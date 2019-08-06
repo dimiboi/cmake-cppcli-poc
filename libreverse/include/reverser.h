@@ -1,6 +1,8 @@
+#pragma once
+
 #include <string>
 
-namespace mx
+namespace hh
 {
   class reverser
   {
