@@ -1,0 +1,28 @@
+trigger:
+  - 'master'
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+  buildDir: 'out'
+  generator: 'Visual Studio 16 2019'
+  architecture: 'x64'
+  configuration: 'Release'
+  testDir: 'HornsHoofs.ReverseService.Tests'
+
+steps:
+  - task: DotNetCoreInstaller@0
+    displayName: 'Install .NET Core 3.0 SDK'
+    inputs:
+      version: '3.0.100-preview7-012821'
+  - task: NuGetToolInstaller@0
+    displayName: 'Install NuGet Tool'
+  - script: cmake -B "$(buildDir)" -S . -G "$(generator)" -A "$(architecture)"
+    displayName: 'Generate Build'
+  - script: cmake --build "$(buildDir)" --config "$(configuration)" --target package
+    displayName: 'Build Package'
+  - script: dotnet restore "$(testDir)"
+    displayName: 'Restore NuGet Packages'
+  - script: dotnet test "$(testDir)"
+    displayName: 'Run Tests'
