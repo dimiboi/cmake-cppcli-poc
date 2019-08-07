@@ -12,6 +12,8 @@ variables:
   testDir: 'HornsHoofs.ReverseService.Tests'
 
 steps:
+  - task: NuGetToolInstaller@0
+    displayName: 'Install NuGet Tool'
   - script: cmake -B "$(buildDir)" -S . -G "$(generator)" -A "$(architecture)"
     displayName: 'Generate Build'
   - script: cmake --build "$(buildDir)" --config "$(configuration)" --target package
