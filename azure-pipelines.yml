@@ -15,8 +15,7 @@ steps:
   - task: DotNetCoreInstaller@0
     displayName: 'Install .NET Core 3.0 SDK'
     inputs:
-      version: '3.0.x'
-      includePreviewVersions: true
+      version: '3.0.0-preview7'
   - task: NuGetToolInstaller@0
     displayName: 'Install NuGet Tool'
   - script: cmake -B "$(buildDir)" -S . -G "$(generator)" -A "$(architecture)"
