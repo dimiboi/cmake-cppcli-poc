@@ -1,0 +1,22 @@
+trigger:
+  - '*'
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
+  buildDir: 'build'
+  generator: 'Visual Studio 16 2019'
+  architecture: 'x64'
+  configuration: 'Release'
+  testDir: 'HornsHoofs.ReverseService.Tests'
+
+steps:
+  - script: cmake -B "$(buildDir)" -S . -G "$(generator)" -A "$(architecture)"
+    displayName: 'Generate Build'
+  - script: cmake --build "$(buildDir)" --config "$(configuration)" --target package
+    displayName: 'Build Package'
+  - script: dotnet restore "$(testDir)"
+    displayName: 'Restore NuGet Packages'
+  - script: dotnet test "$(testDir)"
+    displayName: 'Run Tests'
