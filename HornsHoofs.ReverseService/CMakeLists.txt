@@ -10,3 +10,5 @@ add_library(${target_name} SHARED
 set_target_properties(${target_name} PROPERTIES COMMON_LANGUAGE_RUNTIME "")
 
 target_link_libraries(${target_name} PRIVATE libreverse)
+
+install(TARGETS ${target_name} DESTINATION "lib/net45")
