@@ -1,0 +1,24 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.89
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HornsHoofs.ReverseService.Tests", "HornsHoofs.ReverseService.Tests.csproj", "{FCD911D8-7499-498C-B085-CD1DB22E218C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCD911D8-7499-498C-B085-CD1DB22E218C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD911D8-7499-498C-B085-CD1DB22E218C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD911D8-7499-498C-B085-CD1DB22E218C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD911D8-7499-498C-B085-CD1DB22E218C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBAD68D6-8681-43E2-A8EC-6D8348C6DEFE}
+	EndGlobalSection
+EndGlobal
