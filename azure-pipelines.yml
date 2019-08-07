@@ -12,6 +12,10 @@ variables:
   testDir: 'HornsHoofs.ReverseService.Tests'
 
 steps:
+  - task: UseDotNet@2
+    displayName: 'Install .NET Core 3.0 SDK'
+    inputs:
+      version: '3.0.x'
   - task: NuGetToolInstaller@0
     displayName: 'Install NuGet Tool'
   - script: cmake -B "$(buildDir)" -S . -G "$(generator)" -A "$(architecture)"
